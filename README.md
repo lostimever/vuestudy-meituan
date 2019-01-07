@@ -1,30 +1,22 @@
-# vuestudy-meituan
-vue全家桶-美团网
+# mt-app
 
-## Project setup
-```
-npm install
-```
+> My praiseworthy Nuxt.js project
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Build Setup
 
-### Compiles and minifies for production
-```
-npm run build
-```
+``` bash
+# install dependencies
+$ npm install
 
-### Run your tests
-```
-npm run test
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# build for production and launch server
+$ npm run build
+$ npm start
+
+# generate static project
+$ npm run generate
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
