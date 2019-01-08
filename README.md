@@ -18,5 +18,13 @@ $ npm start
 # generate static project
 $ npm run generate
 ```
+# mogodb
+mogodb 启动
+--windows下
+  mongod.exe --dbpath "D:\mongoDB\data\db"
+
+# Redis
+--Windows下 
+  redis-server
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
