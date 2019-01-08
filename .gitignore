@@ -80,5 +80,5 @@ dist
 # IDE
 .idea
 
-#package
+# package
 package-lock.json

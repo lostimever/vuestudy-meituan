@@ -1,5 +1,5 @@
 export default {
-  dbs: 'mongodb://127.0.0.1:27017',
+  dbs: 'mongodb://127.0.0.1:27017/mtstudy',
   redis: {
     get host() {
       return '127.0.0.1'
@@ -17,19 +17,19 @@ export default {
     },
     get pass() {
       return 'ortloahiszvybjic'
-    }
-  },
-  get code() {
-    return () => {
-      return Math.random()
-        .toString(16)
-        .slice(2, 6)
-        .toLocaleUpperCase()
-    }
-  },
-  get expire() {
-    return () => {
-      return new Date().getTime() + 60 * 60 * 1000
+    },
+    get code() {
+      return () => {
+        return Math.random()
+          .toString(16)
+          .slice(2, 6)
+          .toLocaleUpperCase()
+      }
+    },
+    get expire() {
+      return () => {
+        return new Date().getTime() + 60 * 60 * 1000
+      }
     }
   }
 }
