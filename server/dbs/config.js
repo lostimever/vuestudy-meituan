@@ -1,8 +1,10 @@
 export default {
-  dbs: 'mongodb://127.0.0.1:27017/mtstudy',
+  dbs: 'mongodb://144.34.216.101:27017/mtstudy',
+  // dbs: 'mongodb://127.0.0.1:27017/mtstudy',
   redis: {
     get host() {
-      return '127.0.0.1'
+      return '144.34.216.101'
+      // return '127.0.0.1'
     },
     get port() {
       return 6379
