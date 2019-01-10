@@ -15,7 +15,7 @@ const app = new Koa()
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 3000
 
-app.keys = ['mt', 'keyskeys']
+app.keys = ['mt', 'keykeys']
 app.proxy = true
 app.use(
   session({

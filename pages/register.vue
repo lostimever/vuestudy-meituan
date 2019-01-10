@@ -189,39 +189,38 @@ export default {
         emailPass = vaild
       })
       if (!namePass && !emailPass) {
-        self.$axios.post('/users/verify',
-          {
+        self.$axios
+          .post('/users/verify', {
             username: encodeURIComponent(self.ruleForm.name),
             email: self.ruleForm.email
           })
-            .then(({ status, data }) => {
-              if (status === 200 && data && data.code === 0) {
-                let count = 60
+          .then(({ status, data }) => {
+            if (status === 200 && data && data.code === 0) {
+              let count = 60
+              self.statusMsg = `验证码已发送， 剩余${count--}秒`
+              self.timerid = setInterval(function() {
                 self.statusMsg = `验证码已发送， 剩余${count--}秒`
-                self.timerid = setInterval(function() {
-                  self.statusMsg = `验证码已发送， 剩余${count--}秒`
-                  if (count === 0) {
-                    clearInterval(self.timerid)
-                  }
-                }, 1000)
-              } else {
-                self.statusMsg = data.msg
-              }
-            })
+                if (count === 0) {
+                  clearInterval(self.timerid)
+                }
+              }, 1000)
+            } else {
+              self.statusMsg = data.msg
+            }
+          })
       }
     },
     register: function() {
       let self = this
       this.$refs['ruleForm'].validate(valid => {
         if (valid) {
-          self.$axios.post('/users/signup',
-            {
+          self.$axios
+            .post('/users/signup', {
               username: window.encodeURIComponent(self.ruleForm.name),
               password: CryptoJS.MD5(self.ruleForm.password).toString(),
               email: self.ruleForm.email,
               code: self.ruleForm.code
-            }
-          )
+            })
             .then(({ status, data }) => {
               if (status === 200) {
                 if (data && data.code === 0) {
@@ -232,7 +231,7 @@ export default {
               } else {
                 self.error = `服务器出错，错误码${status}`
               }
-              setTimeout(function(){
+              setTimeout(function() {
                 self.error = ''
               }, 1500)
             })
