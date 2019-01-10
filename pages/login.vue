@@ -70,11 +70,13 @@ export default {
               location.href = '/'
             } else {
               self.error = data.msg
-              setTimeout(function() {
-                self.error = ''
-              }, 1000)
             }
+          } else {
+            self.error = `服务器出错，错误码${status}`
           }
+          setTimeout(function() {
+            self.error = ''
+          }, 1500)
         })
     }
   }

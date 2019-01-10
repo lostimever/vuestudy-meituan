@@ -217,7 +217,7 @@ export default {
           self.$axios
             .post('/users/signup', {
               username: window.encodeURIComponent(self.ruleForm.name),
-              password: CryptoJS.MD5(self.ruleForm.password).toString(),
+              password: CryptoJS.MD5(self.ruleForm.pwd).toString(),
               email: self.ruleForm.email,
               code: self.ruleForm.code
             })
