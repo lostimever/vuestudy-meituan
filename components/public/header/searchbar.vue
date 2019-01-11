@@ -92,6 +92,8 @@
 </template>
 
 <script>
+import _ from 'lodash'
+import { async } from 'q';
 export default {
   data() {
     return {
@@ -104,15 +106,7 @@ export default {
         '尚隐·泉都市生活馆',
         '故宫珍宝馆'
       ],
-      searchList: [
-        '热门搜索',
-        '北京故宫博物院',
-        '北京欢乐',
-        '谷静之湖滑雪场',
-        '尚隐·泉都市生活馆',
-        '故宫珍宝馆',
-        '军都山滑雪场'
-      ]
+      searchList: []
     }
   },
   computed: {
@@ -135,9 +129,21 @@ export default {
         self.isFocus = false
       }, 200)
     },
-    input: function() {
-      console.log(this.search)
-    }
+    input: _.debounce(async function() {
+      let self = this
+      let city = self.$store.state.geo.position.city.replace('市')
+      self.searchList = []
+      let {
+        status,
+        data: { top }
+      } = self.$axios.get('/search/top', {
+        params: {
+          input: self.search,
+          city
+        }
+      })
+      self.searchList = top.slice(0, 10)
+    }, 300)
   }
 }
 </script>

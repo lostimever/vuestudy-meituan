@@ -1,40 +1,40 @@
 import Router from 'koa-router'
 import axios from './utils/axios'
 import Menu from '../dbs/models/menu'
-// import Province from '../dbs/models/province'
+import Province from '../dbs/models/province'
 
 let router = new Router({ prefix: '/geo' })
 
 const sign = 'abcd'
 
 router.get('/getPosition', async ctx => {
-  let {
-    status,
-    data: { province, city }
-  } = await axios.get(`http://cp-tools.cn/geo/getPosition?sign=${sign}`)
-  if (status === 200) {
-    ctx.body = {
-      province,
-      city
-    }
-  } else {
-    ctx.body = {
-      province: '',
-      city: ''
-    }
+  // let {
+  //   status,
+  //   data: { province, city }
+  // } = await axios.get(`http://cp-tools.cn/geo/getPosition?sign=${sign}`)
+  // if (status === 200) {
+  //   ctx.body = {
+  //     province,
+  //     city
+  //   }
+  // } else {
+  ctx.body = {
+    province: '天津市',
+    city: '天津市'
   }
+  // }
 })
 
 router.get('/province', async ctx => {
-  // let province = await Province.find()
-  // ctx.body = {
-  //   province: province.map(item => {
-  //     return {
-  //       id: item.id,
-  //       name: item.value[0]
-  //     }
-  //   })
-  // }
+  let province = await Province.find()
+  ctx.body = {
+    province: province.map(item => {
+      return {
+        id: item.id,
+        name: item.value[0]
+      }
+    })
+  }
   // let {status, data: {
   //     province
   //   }} = await axios.get(`http://cp-tools.cn/geo/province?sign=${sign}`)
@@ -46,14 +46,14 @@ router.get('/province', async ctx => {
 })
 
 router.get('/province/:id', async ctx => {
-  // let city = await City.findOne({id: ctx.params.id})
-  //
-  // ctx.body = {
-  //   code: 0,
-  //   city: city.value.map(item => {
-  //     return {province: item.province, id: item.id, name: item.name}
-  //   })
-  // }
+  let city = await City.findOne({ id: ctx.params.id })
+
+  ctx.body = {
+    code: 0,
+    city: city.value.map(item => {
+      return { province: item.province, id: item.id, name: item.name }
+    })
+  }
   // let {
   //   status,
   //   data: { city }
