@@ -42,7 +42,7 @@
               v-for="(item, index) in searchList"
               :key="index"
             >
-              {{ item }}
+              {{ item.editorWord }}
             </dd>
           </dl>
         </div>
@@ -120,10 +120,8 @@ export default {
   methods: {
     focus: function() {
       this.isFocus = true
-      console.log('focus')
     },
     blur: function() {
-      console.log('blur')
       let self = this
       setTimeout(function() {
         self.isFocus = false
@@ -131,17 +129,18 @@ export default {
     },
     input: _.debounce(async function() {
       let self = this
-      let city = self.$store.state.geo.position.city.replace('市')
+      // let city = self.$store.state.geo.position.city.replace('市')
       self.searchList = []
       let {
         status,
         data: { top }
-      } = self.$axios.get('/search/top', {
+      } = await self.$axios.get('/search/top', {
         params: {
           input: self.search,
-          city
+          // city
         }
       })
+      console.log(status, top)
       self.searchList = top.slice(0, 10)
     }, 300)
   }
