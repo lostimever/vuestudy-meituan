@@ -68,4 +68,8 @@ router.get('/resultByKeyWords', async ctx => {
   }
 })
 
+router.get('/products', async ctx => {
+
+})
+
 export default router
