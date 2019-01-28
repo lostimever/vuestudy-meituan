@@ -1,0 +1,8 @@
+apps:
+  - script: ./server/start.js
+    name: mt-app
+    node_args: "--harmony"
+    env_production:
+      NODE_ENV: production
+      HOST: localhost
+      PORT: 8089

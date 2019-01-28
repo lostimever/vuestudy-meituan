@@ -1,4 +1,5 @@
-import Koa from 'koa'
+// import Koa from 'koa'
+const Koa = require('koa')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 
