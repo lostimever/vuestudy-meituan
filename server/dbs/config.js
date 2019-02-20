@@ -1,9 +1,7 @@
 export default {
-  dbs: 'mongodb://144.34.216.101:27017/mtstudy',
-  // dbs: 'mongodb://127.0.0.1:27017/mtstudy',
+  dbs: 'mongodb://127.0.0.1:27017/mtstudy',
   redis: {
     get host() {
-      // return '144.34.216.101'
       return '127.0.0.1'
     },
     get port() {
@@ -15,10 +13,10 @@ export default {
       return 'smtp.qq.com'
     },
     get user() {
-      return '173571145@qq.com'
+      return '11111111@qq.com'
     },
     get pass() {
-      return 'ortloahiszvybjic'
+      return 'qwsaxdfc'
     },
     get code() {
       return () => {
