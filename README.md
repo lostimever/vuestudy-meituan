@@ -1,6 +1,11 @@
 # mt-app
 
-> My praiseworthy Nuxt.js project
+> 我的第一个vue项目
+
+## 开发技术
+  ```
+    vue/vueRouter/vueX/elementUI/koa2/mongoDB/Redis/ssr
+  ```
 
 ## Build Setup
 
@@ -21,7 +26,7 @@ $ npm run generate
 # mogodb
  ## mogodb 启动
   ### windows下
-  mongod.exe --dbpath "D:\mongoDB\data\db"
+  `mongod.exe --dbpath "D:\mongoDB\data\db"`
 
   ### CentOs 7下
   #### 安装：
@@ -38,7 +43,7 @@ $ npm run generate
   ## CentOs 7下
   #### 安装连接：
   https://www.jianshu.com/p/99debf9bf211 
-#### 开机自启动连接：
+  #### 开机自启动连接：
   https://www.jianshu.com/p/20b761ae993c
   1. 出现 cc: command not found错误：
     `yum install gcc`
