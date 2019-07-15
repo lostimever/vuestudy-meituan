@@ -82,3 +82,6 @@ dist
 
 # package
 package-lock.json
+
+#important info
+./server/dbs/config.js
